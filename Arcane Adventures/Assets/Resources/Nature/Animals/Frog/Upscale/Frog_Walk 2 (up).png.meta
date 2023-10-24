@@ -126,10 +126,10 @@ TextureImporter:
       name: Frog_Walk 2 (up)_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 15
-        width: 212
-        height: 137
+        x: 30
+        y: 30
+        width: 431
+        height: 279
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,10 +147,10 @@ TextureImporter:
       name: Frog_Walk 2 (up)_1
       rect:
         serializedVersion: 2
-        x: 258
-        y: 15
-        width: 212
-        height: 152
+        x: 524
+        y: 30
+        width: 430
+        height: 309
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +168,10 @@ TextureImporter:
       name: Frog_Walk 2 (up)_2
       rect:
         serializedVersion: 2
-        x: 515
+        x: 1049
         y: 30
-        width: 227
-        height: 152
+        width: 457
+        height: 340
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,10 +189,10 @@ TextureImporter:
       name: Frog_Walk 2 (up)_3
       rect:
         serializedVersion: 2
-        x: 773
-        y: 15
-        width: 212
-        height: 137
+        x: 1569
+        y: 30
+        width: 431
+        height: 279
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
