@@ -8,7 +8,10 @@ public class NewBehaviourScript : MonoBehaviour
 {
     public GameObject player;
     private NavMeshAgent agent;
+    public Animator an;
     public string scene;
+    public AudioClip auc;
+    public AudioSource audioSource;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -23,8 +26,16 @@ public class NewBehaviourScript : MonoBehaviour
     {
         if (other.gameObject == player)
         {
-            SceneManager.LoadScene(scene);
+            an.SetTrigger("Scrim");
+            audioSource.PlayOneShot(auc);
+            StartCoroutine(LoadSceneAfterDelay(1));
         }
+    }
+
+    IEnumerator LoadSceneAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(scene);
     }
 
 }
