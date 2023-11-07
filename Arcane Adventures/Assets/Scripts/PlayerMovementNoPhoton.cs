@@ -9,7 +9,7 @@ public class PlayerControlNoPhoton : MonoBehaviour
     public float speed;
     public float slowSpeed;
     public float groundDist;
-
+    public bool isMovementAllowed = true;
 
     public LayerMask terrainLayer;
     public Rigidbody rb;
@@ -24,47 +24,52 @@ public class PlayerControlNoPhoton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RaycastHit hit;
-        Vector3 castpos = transform.position;
-        castpos.y += 1;
 
-        if (Physics.Raycast(castpos, -transform.up, out hit, Mathf.Infinity, terrainLayer))
+        if (isMovementAllowed)
         {
+            RaycastHit hit;
+            Vector3 castpos = transform.position;
+            castpos.y += 1;
 
-            if (hit.collider != null)
+            if (Physics.Raycast(castpos, -transform.up, out hit, Mathf.Infinity, terrainLayer))
             {
-                Vector3 movepos = transform.position;
-                movepos.y = hit.point.y + groundDist;
-                transform.position = movepos;
+
+                if (hit.collider != null)
+                {
+                    Vector3 movepos = transform.position;
+                    movepos.y = hit.point.y + groundDist;
+                    transform.position = movepos;
+                }
+
             }
 
-        }
-
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
+            float x = Input.GetAxis("Horizontal");
+            float y = Input.GetAxis("Vertical");
 
 
-        animator.SetFloat("Speed", Mathf.Abs(x));
-        animator.SetFloat("VerticalSpeed", Mathf.Abs(y));
-        Vector3 moveDir = new Vector3(x, 0, y * (speed / 1.2f));
+            animator.SetFloat("Speed", Mathf.Abs(x));
+            animator.SetFloat("VerticalSpeed", Mathf.Abs(y));
+            Vector3 moveDir = new Vector3(x, 0, (float)(y * (speed / 1.2)));
 
 
-        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
-        {
-            rb.velocity = moveDir * slowSpeed;
-        }
-        else
-        {
-            rb.velocity = moveDir * speed;
-        }
+            if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+            {
+                rb.velocity = moveDir * slowSpeed;
+            }
+            else
+            {
+                rb.velocity = moveDir * speed;
+            }
 
-        if (x != 0 && x < 0)
-        {
-            sr.flipX = true;
-        }
-        else if (x != 0 && x > 0)
-        {
-            sr.flipX = false;
+            if (x != 0 && x < 0)
+            {
+                sr.flipX = true;
+            }
+            else if (x != 0 && x > 0)
+            {
+                sr.flipX = false;
+            }
         }
     }
+       
 }
