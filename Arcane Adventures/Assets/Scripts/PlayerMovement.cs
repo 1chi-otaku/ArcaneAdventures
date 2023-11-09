@@ -10,6 +10,13 @@ public class PlayerControl : MonoBehaviour
     public float slowSpeed;
     public float groundDist;
 
+    public Transform attackPoint;
+    public float range = 0.5f;
+    public LayerMask enemyLayer;
+    public float attackTime = 1f;
+    float nextTimeAttack = 0f;
+
+
     private PhotonView photonView;
 
     public LayerMask terrainLayer;
@@ -52,6 +59,19 @@ public class PlayerControl : MonoBehaviour
             float x = Input.GetAxis("Horizontal");
             float y = Input.GetAxis("Vertical");
 
+            if(Time.time >= nextTimeAttack)
+            {
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    animator.SetTrigger("Attack");
+                    Collider[] hitenemies = Physics.OverlapSphere(attackPoint.position, range, enemyLayer);
+                    foreach (Collider enemy in hitenemies)
+                    {
+                        enemy.GetComponent<EnemyDamage>().TakeDamage(20);
+                    }
+                    nextTimeAttack = Time.time + 1f / attackTime;
+                }
+            }
 
             animator.SetFloat("Speed", Mathf.Abs(x));
             animator.SetFloat("VerticalSpeed", Mathf.Abs(y));
@@ -76,5 +96,10 @@ public class PlayerControl : MonoBehaviour
                 sr.flipX = false;
             }
         }
+    }
+    private void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null) return;
+        Gizmos.DrawWireSphere(attackPoint.position, range);
     }
 }
