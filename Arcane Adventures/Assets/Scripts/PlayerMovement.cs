@@ -12,10 +12,11 @@ public class PlayerControl : MonoBehaviour
     public float slowSpeed;
     public float groundDist;
 
-    public Transform attackPoint;
+    public Transform attackPointright;
+    public Transform attackPointleft;
     public float range = 0.5f;
     public LayerMask enemyLayer;
-    public float attackTime = 1f;
+    public float attackTime = 2f;
     float nextTimeAttack = 0f;
 
 
@@ -27,6 +28,8 @@ public class PlayerControl : MonoBehaviour
     public SpriteRenderer sr;
     public Animator animator;
 
+    public float timeBtwAttack;
+    float starttimeBtwAttack;
     private static int HP = 100;
     public Slider health;
     void Start()
@@ -65,18 +68,26 @@ public class PlayerControl : MonoBehaviour
             float x = Input.GetAxis("Horizontal");
             float y = Input.GetAxis("Vertical");
 
-            if(Time.time >= nextTimeAttack)
+            if(timeBtwAttack <=0)
             {
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    animator.SetTrigger("Attack");
-                    Collider[] hitenemies = Physics.OverlapSphere(attackPoint.position, range, enemyLayer);
-                    foreach (Collider enemy in hitenemies)
+                    if (sr.flipX == false)
                     {
-                        enemy.GetComponent<EnemyDamage>().TakeDamage(20);
+                        Attañk(attackPointright.position);
                     }
-                    nextTimeAttack = Time.time + 1f / attackTime;
+                    else
+                    {
+                        Attañk(attackPointleft.position);
+                    }
+                    AudioSource audioSource = GetComponent<AudioSource>();
+                    audioSource.Play();
                 }
+                timeBtwAttack = starttimeBtwAttack;
+            }
+            else
+            {
+                timeBtwAttack -= Time.deltaTime;
             }
 
             animator.SetFloat("Speed", Mathf.Abs(x));
@@ -103,6 +114,15 @@ public class PlayerControl : MonoBehaviour
             }
         }
     }
+    private void Attañk(Vector3 attackpoint_position)
+    {
+        animator.SetTrigger("Attack");
+        Collider[] hitenemies = Physics.OverlapSphere(attackpoint_position, range, enemyLayer);
+        foreach (Collider enemy in hitenemies)
+        {
+            enemy.GetComponent<EnemyDamage>().TakeDamage(10);
+        }
+    }
     public static void Damage(int dmg)
     {
         HP -= dmg;
@@ -113,7 +133,7 @@ public class PlayerControl : MonoBehaviour
     }
     private void OnDrawGizmosSelected()
     {
-        if (attackPoint == null) return;
-        Gizmos.DrawWireSphere(attackPoint.position, range);
+        if (attackPointright == null) return;
+        Gizmos.DrawWireSphere(attackPointright.position, range);
     }
 }

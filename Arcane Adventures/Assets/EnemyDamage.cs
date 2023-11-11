@@ -12,7 +12,7 @@ public class EnemyDamage : MonoBehaviour
     int currenthealth;
     public Slider healthbar;
 
-    public float speed;
+    private float speed = 0.3f;
     private float attackrange = 0.33f;
     public int positionofPatrol;
     public Transform point;
@@ -23,6 +23,10 @@ public class EnemyDamage : MonoBehaviour
     bool back = false;
     bool angry = false;
     SpriteRenderer sr;
+
+    private float timeBtwAttack=0;
+    public float startTimeBtwAttack;
+    private bool isAttacking =false  ;
     void Start()
     {
         currenthealth = maxhealth;
@@ -34,7 +38,11 @@ public class EnemyDamage : MonoBehaviour
     {
         healthbar.value = currenthealth;
 
-
+        if(isAttacking )
+        {
+            speed = 0;
+        }
+        
         if (Vector3.Distance(transform.position, point.position) < positionofPatrol && angry == false)
         {
             chill = true;
@@ -65,17 +73,39 @@ public class EnemyDamage : MonoBehaviour
         }
 
     }
-
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerStay(Collider other)
     {
-        animator.SetBool("IsAttacking", true);
-        PlayerControl.Damage(10);
+        if(other.CompareTag("Player"))
+        {
+            if(timeBtwAttack <=0)
+            {
+                animator.SetBool("IsAttacking", true);
+                PlayerControl.Damage(10);
+                timeBtwAttack = startTimeBtwAttack;
+                isAttacking = true;
+                AudioSource audioSource = GetComponent<AudioSource>();
+                audioSource.Play();
+            }
+            else
+            {
+                timeBtwAttack -=Time.deltaTime;
+            }
+        }
     }
-
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
-        animator.SetBool("IsAttacking", false);
+        animator.SetBool("IsAttacking", false); 
+        isAttacking=false;
     }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    animator.SetBool("IsAttacking", true);
+    //    PlayerControl.Damage(10);
+    //}
+    //private void OnCollisionExit(Collision collision)
+    //{
+    //    animator.SetBool("IsAttacking", false);
+    //}
     void Chill()
     {
         animator.SetBool("IsChasing", false);
