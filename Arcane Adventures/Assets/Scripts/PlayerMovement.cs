@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 //using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -19,10 +21,14 @@ public class PlayerControl : MonoBehaviour
 
     private PhotonView photonView;
 
+    
     public LayerMask terrainLayer;
     public Rigidbody rb;
     public SpriteRenderer sr;
     public Animator animator;
+
+    private static int HP = 100;
+    public Slider health;
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
@@ -39,7 +45,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (photonView.IsMine)
         {
-            
+            health.value = HP;
             RaycastHit hit;
             Vector3 castpos = transform.position;
             castpos.y += 1;
@@ -95,6 +101,14 @@ public class PlayerControl : MonoBehaviour
             {
                 sr.flipX = false;
             }
+        }
+    }
+    public static void Damage(int dmg)
+    {
+        HP -= dmg;
+        if(HP <= 0)
+        {
+            SceneManager.LoadScene("GameScene2");
         }
     }
     private void OnDrawGizmosSelected()
