@@ -10267,6 +10267,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7957064039689646855, guid: 0530989b9b8906a47a7abc6ad31f4be7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 32.221
+      objectReference: {fileID: 0}
+    - target: {fileID: 7957064039689646855, guid: 0530989b9b8906a47a7abc6ad31f4be7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.694
+      objectReference: {fileID: 0}
     - target: {fileID: 8172923818388967502, guid: 0530989b9b8906a47a7abc6ad31f4be7, type: 3}
       propertyPath: m_Name
       value: Terrain Stuff
@@ -10284,7 +10292,10 @@ PrefabInstance:
       value: -0.082466125
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2420898249377788860, guid: 0530989b9b8906a47a7abc6ad31f4be7, type: 3}
+    - {fileID: 1628970433132885267, guid: 0530989b9b8906a47a7abc6ad31f4be7, type: 3}
+    - {fileID: 7043304515949693010, guid: 0530989b9b8906a47a7abc6ad31f4be7, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4057056224846780983, guid: 0530989b9b8906a47a7abc6ad31f4be7, type: 3}
       insertIndex: 2
@@ -10442,7 +10453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5404629705425819246, guid: c9be6086e3ecc5a46a766e378e328ebb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.07605553
+      value: -0.08010292
       objectReference: {fileID: 0}
     - target: {fileID: 5404629705425819246, guid: c9be6086e3ecc5a46a766e378e328ebb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10522,7 +10533,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7664367986297965934, guid: c9be6086e3ecc5a46a766e378e328ebb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.07605553
+      value: -0.08010292
       objectReference: {fileID: 0}
     - target: {fileID: 7664367986297965934, guid: c9be6086e3ecc5a46a766e378e328ebb, type: 3}
       propertyPath: m_LocalPosition.y
