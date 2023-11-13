@@ -8,7 +8,7 @@ public class ShowPuzzle : MonoBehaviour
     public Canvas PuzzleCanvas;
     public PlayerControlNoPhoton playerControl;
     public Text UserInputText;
-    public string SecretCode = "MISTY";
+    public string SecretCode = "ЭЛИЗА";
 
     public bool SecretCodeEntered = false;
 
