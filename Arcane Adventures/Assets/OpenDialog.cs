@@ -1,25 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class OpenDialog : MonoBehaviour
 {
-    public string stringtext;
-    public DialogueWindow dialogue;
+    public string stringText;
+    public Sprite characterSprite; // Спрайт для персонажа
+    public DialogueWindow dialogueWindow;
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            dialogue.Show(stringtext);
+            dialogueWindow.Show(stringText, characterSprite);
         }
     }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            dialogue.Hide();
+            dialogueWindow.Hide();
         }
     }
 }
