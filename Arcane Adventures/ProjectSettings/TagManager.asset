@@ -4,15 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
-<<<<<<< Updated upstream
-  - Fox
-=======
   - Point
-  - BlueOrb
   - YellowOrb
+  - BlueOrb
   - Trap
->>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
@@ -21,8 +16,8 @@ TagManager:
   - Water
   - UI
   - Terrain
-  - PostProcessing
-  - Enemy
+  - 
+  - 
   - 
   - 
   - 
@@ -47,15 +42,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: An Actual Background
+    uniqueID: 4254188507
+    locked: 0
   - name: Background
-    uniqueID: 2660569285
+    uniqueID: 2714965583
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Objects
-    uniqueID: 2114780997
+  - name: Between
+    uniqueID: 1727532209
     locked: 0
   - name: Terrain
-    uniqueID: 1488944251
+    uniqueID: 4224558479
     locked: 0

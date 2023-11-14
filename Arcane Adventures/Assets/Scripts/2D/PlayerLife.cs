@@ -8,6 +8,7 @@ public class PlayerLife : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Animator animator;
+    [SerializeField] private AudioSource deathSoundEffect;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -18,6 +19,7 @@ public class PlayerLife : MonoBehaviour
         if (collision.gameObject.CompareTag("Trap"))
         {
             Die();
+
         }
     }
 
@@ -25,6 +27,7 @@ public class PlayerLife : MonoBehaviour
     {
         rb.bodyType = RigidbodyType2D.Static;
         animator.SetTrigger("death");
+        deathSoundEffect.Play();
         Invoke("RestartLevel", 2f);
     }
 
