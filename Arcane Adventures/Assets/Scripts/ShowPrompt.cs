@@ -7,10 +7,9 @@ public class ShowPrompt : MonoBehaviour
 {
     //Канвас, который отображает кнопку E на экране.
     public Canvas EpromptCanvas;
-    public ShowPuzzle PuzzleScript;
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player" && PuzzleScript.SecretCodeEntered == false)
+        if(other.tag == "Player" )
         {
             //Отображение кнопки E.
             EpromptCanvas.enabled = true;
@@ -19,7 +18,7 @@ public class ShowPrompt : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.tag == "Player" && PuzzleScript.SecretCodeEntered == false)
+        if(other.tag == "Player" )
         {
             EpromptCanvas.enabled = false;
         }
