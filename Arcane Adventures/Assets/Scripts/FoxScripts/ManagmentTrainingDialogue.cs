@@ -74,8 +74,7 @@ public class ManagmentTrainingDialogue : MonoBehaviour
         nameText.text = lines[lineIndex].name;
         characterImage.sprite = lines[lineIndex].characterSprite;
 
-        // Устанавливаем фиксированный отступ для текста, который равен ширине картинки плюс небольшой отступ
-        float offsetForText = 200 + 10; // 200 пикселей ширины картинки + 10 пикселей отступа
+        float offsetForText = 200 + 10; 
 
         // Настройка RectTransform для textComponent
         RectTransform textRectTransform = textComponent.GetComponent<RectTransform>();
