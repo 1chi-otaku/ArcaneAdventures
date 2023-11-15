@@ -8,6 +8,11 @@ public class load : MonoBehaviour
 {
     public GameObject player;
     public string scene;
+    public static Collider col;
+    private void Start()
+    {
+        col = GetComponent<Collider>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {

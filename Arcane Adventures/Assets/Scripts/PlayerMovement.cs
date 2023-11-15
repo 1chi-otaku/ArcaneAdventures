@@ -28,8 +28,8 @@ public class PlayerControl : MonoBehaviour
     public SpriteRenderer sr;
     public Animator animator;
 
-    public float timeBtwAttack;
-    float starttimeBtwAttack;
+    public float timeBtwAttack=0;
+    float starttimeBtwAttack=0.25f;
     private static int HP = 100;
     public Slider health;
     void Start()
@@ -82,8 +82,9 @@ public class PlayerControl : MonoBehaviour
                     }
                     AudioSource audioSource = GetComponent<AudioSource>();
                     audioSource.Play();
+                    timeBtwAttack = starttimeBtwAttack;
+
                 }
-                timeBtwAttack = starttimeBtwAttack;
             }
             else
             {
@@ -114,6 +115,12 @@ public class PlayerControl : MonoBehaviour
             }
         }
     }
+    public static void AddHP()
+    {
+
+        HP += 50;
+       
+    }
     private void Attañk(Vector3 attackpoint_position)
     {
         animator.SetTrigger("Attack");
@@ -129,6 +136,7 @@ public class PlayerControl : MonoBehaviour
         if(HP <= 0)
         {
             SceneManager.LoadScene("GameScene2");
+            HP = 100;
         }
     }
     private void OnDrawGizmosSelected()

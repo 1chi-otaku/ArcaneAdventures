@@ -27,6 +27,7 @@ public class EnemyDamage : MonoBehaviour
     private float timeBtwAttack=0;
     public float startTimeBtwAttack;
     private bool isAttacking =false  ;
+    private bool isalive = true;
     void Start()
     {
         currenthealth = maxhealth;
@@ -75,20 +76,23 @@ public class EnemyDamage : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (isalive)
         {
-            if(timeBtwAttack <=0)
+            if (other.CompareTag("Player"))
             {
-                animator.SetBool("IsAttacking", true);
-                PlayerControl.Damage(10);
-                timeBtwAttack = startTimeBtwAttack;
-                isAttacking = true;
-                AudioSource audioSource = GetComponent<AudioSource>();
-                audioSource.Play();
-            }
-            else
-            {
-                timeBtwAttack -=Time.deltaTime;
+                if (timeBtwAttack <= 0)
+                {
+                    animator.SetBool("IsAttacking", true);
+                    PlayerControl.Damage(10);
+                    timeBtwAttack = startTimeBtwAttack;
+                    isAttacking = true;
+                    AudioSource audioSource = GetComponent<AudioSource>();
+                    audioSource.Play();
+                }
+                else
+                {
+                    timeBtwAttack -= Time.deltaTime;
+                }
             }
         }
     }
@@ -178,6 +182,8 @@ public class EnemyDamage : MonoBehaviour
         transform.position = new Vector3(currentpostion.x, currentpostion.y - 0.1f, currentpostion.z);
         GetComponent<Collider>().enabled = false;
         this.enabled = false;
+        isalive = false;
+        NikitaOpenDialog.countkilled++;
     }
 
 }
