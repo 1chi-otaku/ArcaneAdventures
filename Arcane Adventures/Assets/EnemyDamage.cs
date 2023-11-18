@@ -43,7 +43,6 @@ public class EnemyDamage : MonoBehaviour
         {
             speed = 0;
         }
-        
         if (Vector3.Distance(transform.position, point.position) < positionofPatrol && angry == false)
         {
             chill = true;

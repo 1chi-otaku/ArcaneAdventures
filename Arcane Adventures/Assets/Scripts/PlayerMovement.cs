@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 //using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
+using UnityEngine.Timeline;
 using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour
@@ -30,8 +32,9 @@ public class PlayerControl : MonoBehaviour
 
     public float timeBtwAttack=0;
     float starttimeBtwAttack=0.25f;
-    private static int HP = 100;
+    private static int HP;
     public Slider health;
+    public PlayableDirector endcutscene;
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
@@ -40,7 +43,7 @@ public class PlayerControl : MonoBehaviour
         {
             photonView.TransferOwnership(PhotonNetwork.LocalPlayer);
         }
-
+        HP = 100;
     }
 
     // Update is called once per frame
@@ -114,6 +117,10 @@ public class PlayerControl : MonoBehaviour
                 sr.flipX = false;
             }
         }
+        if(HP<=0)
+        {
+            endcutscene.Play();
+        }
     }
     public static void AddHP()
     {
@@ -135,8 +142,6 @@ public class PlayerControl : MonoBehaviour
         HP -= dmg;
         if(HP <= 0)
         {
-            SceneManager.LoadScene("GameScene2");
-            HP = 100;
         }
     }
     private void OnDrawGizmosSelected()

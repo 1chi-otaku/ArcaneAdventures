@@ -7,6 +7,7 @@ public class NikitaOpenDialog : MonoBehaviour
 {
     public string stringText;
     public NIkitaWindow dialogueWindow;
+    public Canvas task;
     public static int countkilled=0;
 
     private void OnTriggerEnter(Collider other)
@@ -20,7 +21,7 @@ public class NikitaOpenDialog : MonoBehaviour
             }
 
             else dialogueWindow.Show(stringText);
-
+            task.enabled = false;
 
         }
         
