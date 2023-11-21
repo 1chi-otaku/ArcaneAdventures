@@ -9,6 +9,7 @@ public class Cube : MonoBehaviour
     public Manager manager;
     public int number;
     public int numberCell;
+    public AudioSource audioSource;
     void Start()
     {
         col= GetComponent<BoxCollider>();
@@ -22,18 +23,22 @@ public class Cube : MonoBehaviour
             if (!Physics.Linecast(transform.position, transform.position - transform.right * 2.45f, out hit))
             {
                 transform.position = new Vector3(transform.position.x + 2.45f, transform.position.y, transform.position.z);
+                audioSource.Play();
             }
             else if (!Physics.Linecast(transform.position, transform.position + transform.right * 2.45f, out hit))
             {
                 transform.position = new Vector3(transform.position.x - 2.45f, transform.position.y, transform.position.z);
+                audioSource.Play();
             }
             else if (!Physics.Linecast(transform.position, transform.position - transform.forward * 2.45f, out hit))
             {
                 transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 2.45f);
+                audioSource.Play();
             }
             else if (!Physics.Linecast(transform.position, transform.position + transform.forward * 2.45f, out hit))
             {
                 transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 2.45f);
+                audioSource.Play();
             }
             col.enabled = true;
         }
