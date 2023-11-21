@@ -36,6 +36,7 @@ public class PlayerControl : MonoBehaviour
     public Slider health;
     public PlayableDirector endcutscene;
 
+
     public bool isMovementAllowed = true;
 
     void Start()
@@ -109,6 +110,7 @@ public class PlayerControl : MonoBehaviour
             else
             {
                 rb.velocity = moveDir * speed;
+               
             }
 
             if (x != 0 && x < 0)
