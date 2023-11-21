@@ -8,6 +8,7 @@ public class Scene : MonoBehaviour
     public void ChangeScene(string scene)
     {
         Debug.Log("—цена: " + scene);
+
         SceneManager.LoadScene(scene);
     }
 
