@@ -23,8 +23,9 @@ public class PlayerControl : MonoBehaviour
 
 
     private PhotonView photonView;
+    public AudioSource footstepsSound, sprintSound;
 
-    
+
     public LayerMask terrainLayer;
     public Rigidbody rb;
     public SpriteRenderer sr;
@@ -55,7 +56,45 @@ public class PlayerControl : MonoBehaviour
     {
         if (photonView.IsMine && isMovementAllowed)
         {
-            health.value = HP;
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+            {
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    if (!sprintSound.isPlaying)
+                    {
+                        sprintSound.Play();
+                    }
+                    if (footstepsSound.isPlaying)
+                    {
+                        footstepsSound.Stop();
+                    }
+                }
+                else
+                {
+                    if (!footstepsSound.isPlaying)
+                    {
+                        footstepsSound.Play();
+                    }
+                    if (sprintSound.isPlaying)
+                    {
+                        sprintSound.Stop();
+                    }
+                }
+            }
+            else
+            {
+                if (footstepsSound.isPlaying)
+                {
+                    footstepsSound.Stop();
+                }
+                if (sprintSound.isPlaying)
+                {
+                    sprintSound.Stop();
+                }
+            }
+        
+
+        health.value = HP;
             RaycastHit hit;
             Vector3 castpos = transform.position;
             castpos.y += 1;

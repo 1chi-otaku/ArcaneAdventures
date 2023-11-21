@@ -1,6 +1,3 @@
-using Photon.Pun;
-using System.Collections;
-using System.Collections.Generic;
 //using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
@@ -10,6 +7,8 @@ public class PlayerControlNoPhoton : MonoBehaviour
     public float slowSpeed;
     public float groundDist;
     public bool isMovementAllowed = true;
+
+    public AudioSource footstepsSound, sprintSound;
 
     public LayerMask terrainLayer;
     public Rigidbody rb;
@@ -27,6 +26,43 @@ public class PlayerControlNoPhoton : MonoBehaviour
 
         if (isMovementAllowed)
         {
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+            {
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    if (!sprintSound.isPlaying)
+                    {
+                        sprintSound.Play();
+                    }
+                    if (footstepsSound.isPlaying)
+                    {
+                        footstepsSound.Stop();
+                    }
+                }
+                else
+                {
+                    if (!footstepsSound.isPlaying)
+                    {
+                        footstepsSound.Play();
+                    }
+                    if (sprintSound.isPlaying)
+                    {
+                        sprintSound.Stop();
+                    }
+                }
+            }
+            else
+            {
+                if (footstepsSound.isPlaying)
+                {
+                    footstepsSound.Stop();
+                }
+                if (sprintSound.isPlaying)
+                {
+                    sprintSound.Stop();
+                }
+            }
+
             RaycastHit hit;
             Vector3 castpos = transform.position;
             castpos.y += 1;
@@ -70,6 +106,7 @@ public class PlayerControlNoPhoton : MonoBehaviour
                 sr.flipX = false;
             }
         }
-    }
        
+    }
 }
+
