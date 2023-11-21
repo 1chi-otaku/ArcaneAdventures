@@ -35,6 +35,9 @@ public class PlayerControl : MonoBehaviour
     private static int HP;
     public Slider health;
     public PlayableDirector endcutscene;
+
+    public bool isMovementAllowed = true;
+
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
@@ -49,7 +52,7 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (photonView.IsMine)
+        if (photonView.IsMine && isMovementAllowed)
         {
             health.value = HP;
             RaycastHit hit;

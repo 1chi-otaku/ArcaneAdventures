@@ -8,6 +8,10 @@ public class EnterPlatformer : MonoBehaviour
 {
     private bool cutscenePlayed = false;
     public PlayableDirector cutsceneDirector; // ссылка на таймлайн катсцены
+    public Canvas EPromptCanvas;
+    public Canvas HPCanvas;
+    public Canvas BlackBars;
+    public PlayerControl playerControl;
 
     private void OnTriggerStay(Collider other)
     {
@@ -17,9 +21,12 @@ public class EnterPlatformer : MonoBehaviour
             {
                 if (!cutscenePlayed)
                 {
+                    BlackBars.gameObject.SetActive(true);
+                    EPromptCanvas.gameObject.SetActive(false);
+                    HPCanvas.gameObject.SetActive(false);
                     cutsceneDirector.stopped += OnCutsceneEnd; // подписываемся на событие окончания воспроизведения
                     cutsceneDirector.Play();
-
+                    playerControl.isMovementAllowed = false;
                     cutscenePlayed = true;
                 }
             }
