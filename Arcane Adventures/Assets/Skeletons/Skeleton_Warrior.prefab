@@ -253,7 +253,7 @@ MonoBehaviour:
   healthbar: {fileID: 5850768044856998688}
   positionofPatrol: 1
   point: {fileID: 802329705741091071}
-  stopppingDistance: 1
+  stopppingDistance: 2
   startTimeBtwAttack: 1
 --- !u!135 &9041847506588833484
 SphereCollider:

@@ -139,7 +139,7 @@ public class EnemyDamage : MonoBehaviour
 
         //animator.transform.LookAt(player);
         transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-        speed = 0.7f;
+        speed = 1.5f;
         if (transform.position.x < player.position.x)
         {
             sr.flipX = false;
