@@ -845,6 +845,8 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: 5120623081530416539, guid: 2ff5ac71627d44b4684645a04ad1cbc7, type: 2}
     value: {fileID: 1206426228}
+  - key: {fileID: -2038182048087916897, guid: 2ff5ac71627d44b4684645a04ad1cbc7, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References:
     - 4a256822da277134eadce4bd3aa67ee9: {fileID: 1690638905}
@@ -3487,6 +3489,7 @@ MonoBehaviour:
   HPCanvas: {fileID: 1447585684}
   BlackBars: {fileID: 1943659224}
   playerControl: {fileID: 6353012368037258361}
+  manager: {fileID: 1931464670}
 --- !u!1 &900404549
 GameObject:
   m_ObjectHideFlags: 0
@@ -4814,6 +4817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d863bb719a4d1614e8bc7abd43394a91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 1931464670}
 --- !u!114 &1384365715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6676,6 +6680,51 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1931464669
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1931464671}
+  - component: {fileID: 1931464670}
+  m_Layer: 0
+  m_Name: DataPersistenceManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1931464670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931464669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f8365ea4747be48b6af0fc032391ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileName: data.game
+--- !u!4 &1931464671
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931464669}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.558589, y: 1.4179779, z: 0.6901506}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1936707973
 GameObject:
   m_ObjectHideFlags: 0
@@ -11644,6 +11693,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 6353012368037258346}
   scene: Labyrinth
+  manager: {fileID: 1931464670}
 --- !u!65 &1954975190
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12597,7 +12647,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5404629705425819246, guid: c9be6086e3ecc5a46a766e378e328ebb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.08010292
+      value: -0.08005142
       objectReference: {fileID: 0}
     - target: {fileID: 5404629705425819246, guid: c9be6086e3ecc5a46a766e378e328ebb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12709,7 +12759,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7664367986297965934, guid: c9be6086e3ecc5a46a766e378e328ebb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.08010292
+      value: -0.08005142
       objectReference: {fileID: 0}
     - target: {fileID: 7664367986297965934, guid: c9be6086e3ecc5a46a766e378e328ebb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13006,3 +13056,4 @@ SceneRoots:
   - {fileID: 1802225834}
   - {fileID: 149376669}
   - {fileID: 2114435889}
+  - {fileID: 1931464671}

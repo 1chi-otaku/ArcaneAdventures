@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 
-public class TriggerCutscene : MonoBehaviour
+public class TriggerCutscene : MonoBehaviour, IDataPersistence
 {
     private bool cutscenePlayed = false;
     public PlayableDirector cutsceneDirector; // ссылка на таймлайн катсцены
@@ -58,4 +58,13 @@ public class TriggerCutscene : MonoBehaviour
 
     }
 
+    public void LoadData(GameData data)
+    {
+        cutscenePlayed = data.IsOverviewCutscenePlayed;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.IsOverviewCutscenePlayed = cutscenePlayed;
+    }
 }

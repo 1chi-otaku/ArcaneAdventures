@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Timeline;
 using UnityEngine.UI;
 
-public class PlayerControl : MonoBehaviour
+public class PlayerControl : MonoBehaviour, IDataPersistence
 {
     public float speed;
     public float slowSpeed;
@@ -192,5 +192,17 @@ public class PlayerControl : MonoBehaviour
     {
         if (attackPointright == null) return;
         Gizmos.DrawWireSphere(attackPointright.position, range);
+    }
+
+    public void LoadData(GameData data)
+    {
+        this.transform.position = data.playerPosition;
+        HP = data.PlayerHp;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.playerPosition = this.transform.position;
+        data.PlayerHp = HP;
     }
 }

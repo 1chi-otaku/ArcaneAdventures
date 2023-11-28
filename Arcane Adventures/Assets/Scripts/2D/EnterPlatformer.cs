@@ -12,6 +12,7 @@ public class EnterPlatformer : MonoBehaviour
     public Canvas HPCanvas;
     public Canvas BlackBars;
     public PlayerControl playerControl;
+    public DataPersisteneManager manager;
 
 
     private void Update()
@@ -29,6 +30,7 @@ public class EnterPlatformer : MonoBehaviour
             {
                 if (!cutscenePlayed)
                 {
+                    manager.SaveGame();
                     BlackBars.gameObject.SetActive(true);
                     EPromptCanvas.gameObject.SetActive(false);
                     HPCanvas.gameObject.SetActive(false);

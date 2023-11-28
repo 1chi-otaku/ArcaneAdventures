@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.Rendering.DebugUI;
 
-public class NikitaOpenDialog : MonoBehaviour
+public class NikitaOpenDialog : MonoBehaviour, IDataPersistence
 {
     public string stringText;
     public NIkitaWindow dialogueWindow;
@@ -34,5 +34,14 @@ public class NikitaOpenDialog : MonoBehaviour
             dialogueWindow.Hide();
          }
     }
-    
+
+    public void LoadData(GameData data)
+    {
+        countkilled = data.KilledSkeleons;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.KilledSkeleons = countkilled;
+    }
 }

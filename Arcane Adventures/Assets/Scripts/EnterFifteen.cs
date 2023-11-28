@@ -8,12 +8,14 @@ using UnityEngine.SceneManagement;
 
 public class EnterFifteen : MonoBehaviour
 {
+    public DataPersisteneManager manager;
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             if (Input.GetKey(KeyCode.E))
             {
+                manager.SaveGame();
                 SceneManager.LoadScene("15");
             }
         }
