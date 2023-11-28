@@ -40,4 +40,10 @@ public class Scene : MonoBehaviour
     {
         SceneManager.LoadSceneAsync("GameScene2");
     }
+
+    public void Return()
+    {
+        DataPersisteneManager.instance.SaveGame();
+        SceneManager.LoadSceneAsync("Menu");
+    }
 }

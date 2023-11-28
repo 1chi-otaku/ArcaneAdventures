@@ -15,7 +15,7 @@ public class EnterFifteen : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.E))
             {
-                manager.SaveGame();
+                DataPersisteneManager.instance.SaveGame();
                 SceneManager.LoadScene("15");
             }
         }

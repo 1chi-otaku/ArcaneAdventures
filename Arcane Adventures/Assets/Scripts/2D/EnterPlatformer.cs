@@ -30,7 +30,7 @@ public class EnterPlatformer : MonoBehaviour
             {
                 if (!cutscenePlayed)
                 {
-                    manager.SaveGame();
+                    DataPersisteneManager.instance.SaveGame();
                     BlackBars.gameObject.SetActive(true);
                     EPromptCanvas.gameObject.SetActive(false);
                     HPCanvas.gameObject.SetActive(false);
