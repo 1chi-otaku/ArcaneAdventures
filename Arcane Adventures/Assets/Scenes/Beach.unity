@@ -17345,6 +17345,7 @@ GameObject:
   - component: {fileID: 1273561177}
   - component: {fileID: 1273561176}
   - component: {fileID: 1273561175}
+  - component: {fileID: 1273561179}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -17362,7 +17363,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.37847656, y: -0, z: -0, w: 0.9256109}
   m_LocalPosition: {x: 3.0000305, y: -2, z: 2.1100013}
-  m_LocalScale: {x: 8.06, y: 7.9750495, z: 4.184931}
+  m_LocalScale: {x: 8.06, y: 7.97505, z: 4.1849313}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1158946531}
@@ -17451,6 +17452,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1273561173}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1273561179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273561173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6f361970bf302a49ad7c218f9e5e17b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetObject: {fileID: 1158946529}
+  EpromptCanvas: {fileID: 129089170}
 --- !u!4 &1280181176 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3878099341516331188, guid: af9f8a9ea69fd7f4d94640bc5914b6f9, type: 3}
@@ -17494,7 +17509,7 @@ Transform:
   m_GameObject: {fileID: 1286567188}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.6, y: -0.4, z: -0.37}
+  m_LocalPosition: {x: -0.6, y: -0, z: -0.693}
   m_LocalScale: {x: 0.26, y: 0.26873386, z: 0.14143886}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -20031,6 +20046,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebd537979c59573449086a7dcd6fe192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newGameButton: {fileID: 0}
+  loadGameButton: {fileID: 0}
 --- !u!1001 &1596528620
 PrefabInstance:
   m_ObjectHideFlags: 0
