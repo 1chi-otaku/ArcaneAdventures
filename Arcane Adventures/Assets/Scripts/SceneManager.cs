@@ -7,7 +7,7 @@ public class Scene : MonoBehaviour
 {
     public void ChangeScene(string scene)
     {
-        Debug.Log("—цена: " + scene);
+        Debug.Log("New Game: " + scene);
 
         SceneManager.LoadScene(scene);
     }
@@ -15,5 +15,10 @@ public class Scene : MonoBehaviour
     public void CloseUnityApplication()
     {
         Application.Quit();
+    }
+
+    public void Load()
+    {
+        Debug.Log("Load");
     }
 }
