@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class endtimeline : MonoBehaviour
 {
     private PlayableDirector playableDirector;
+    public string LoadScene;
 
     private void Start()
     {
@@ -23,7 +24,7 @@ public class endtimeline : MonoBehaviour
     private void OnTimelineStopped(PlayableDirector director)
     {
         // Перезагружаем сцену
-        SceneManager.LoadScene("GameScene2");
+        SceneManager.LoadScene(LoadScene);
 
     }
 }

@@ -168,8 +168,9 @@ public class PlayerControl : MonoBehaviour, IDataPersistence
     }
     public static void AddHP()
     {
-
-        HP += 50;
+        if(HP +50 >100)
+        HP = 100;
+        else {  HP += 50; }
        
     }
     private void Attañk(Vector3 attackpoint_position)
