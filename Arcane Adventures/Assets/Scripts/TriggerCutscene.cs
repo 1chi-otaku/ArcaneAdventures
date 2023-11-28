@@ -13,6 +13,14 @@ public class TriggerCutscene : MonoBehaviour
     private Collider triggerCollider;
 
 
+    private void Update()
+    {
+        if (cutscenePlayed && Input.GetKeyDown(KeyCode.F))
+        {
+            OnCutsceneEnd(cutsceneDirector);
+        }
+    }
+
     private void Start()
     {
         // Получаем компонент Collider при старте
@@ -46,6 +54,8 @@ public class TriggerCutscene : MonoBehaviour
         BlackBars.gameObject.SetActive(false);
         cutsceneDirector.stopped -= OnCutsceneEnd;
         playerControl.isMovementAllowed = true;
+        cutsceneDirector.Stop();
 
     }
+
 }

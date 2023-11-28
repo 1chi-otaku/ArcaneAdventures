@@ -13,6 +13,14 @@ public class EnterPlatformer : MonoBehaviour
     public Canvas BlackBars;
     public PlayerControl playerControl;
 
+
+    private void Update()
+    {
+        if (cutscenePlayed && Input.GetKeyDown(KeyCode.F))
+        {
+            SceneManager.LoadScene("Platformer-1");
+        }
+    }
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
