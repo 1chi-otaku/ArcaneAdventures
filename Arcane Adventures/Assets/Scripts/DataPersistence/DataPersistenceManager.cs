@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.SceneManagement;
+
 public class DataPersisteneManager : MonoBehaviour
 {
     // Текущее состояние нашей игры.
+
+    [Header("Debbuging")]
+    [SerializeField] private bool initializeDataIfNull = false;
 
     [Header("File Storage Config")]
     [SerializeField] private string fileName;
@@ -14,19 +19,44 @@ public class DataPersisteneManager : MonoBehaviour
     private List<IDataPersistence> dataPersistenceObjects;
     private FileDataHandler dataHandler;
 
-    private void Start()
+
+   private void OnEnable()
     {
-        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.sceneUnloaded += OnSceneUnloaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.sceneUnloaded -= OnSceneUnloaded;
+    }
+
+    private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("On Scene Loaded");
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
         LoadGame();
     }
+
+    private void OnSceneUnloaded(UnityEngine.SceneManagement.Scene scene )
+    {
+        Debug.Log("On Scene UnLoaded");
+        SaveGame();
+    }
+
     private void Awake()
     {
         if(instance != null)
         {
-            Debug.LogError("Каким-то образом тут два инстанса DataPersistanceManager, но как?");
+            Debug.Log("Каким-то образом тут два инстанса DataPersistanceManager, но как?");
+            Destroy(gameObject);
+            return;
         }
         instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
     }
 
     public void NewGame()
@@ -36,6 +66,11 @@ public class DataPersisteneManager : MonoBehaviour
 
     public void LoadGame()
     {
+
+        if(this.gameData == null && initializeDataIfNull)
+        {
+            NewGame();
+        }
         //Метод загружает сохранненые данные из файла используя data handler
         this.gameData = dataHandler.Load();
 
@@ -43,8 +78,8 @@ public class DataPersisteneManager : MonoBehaviour
         //Если данных для загрузки нет, инициализировать новую игру.
         if(this.gameData == null)
         {
-            Debug.Log("Данные для загрузки не найдены. Данные инициализируются дефолтом");
-            NewGame();
+            Debug.Log("Данные для загрузки не найдены. Нужно начать новую игру");
+            return;
         }
         // Запушить загруженные ланные во все другие скрипты
         foreach (IDataPersistence dataPersistenceObj  in dataPersistenceObjects)
@@ -57,6 +92,12 @@ public class DataPersisteneManager : MonoBehaviour
 
     public void SaveGame()
     {
+
+        if(this.gameData == null)
+        {
+            Debug.LogWarning("No data was found. A new Game needs to be started before data can be saved");
+            return;
+        }
         // - pass the game to other scripts so they can update it.
 
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
@@ -81,5 +122,10 @@ public class DataPersisteneManager : MonoBehaviour
             .OfType<IDataPersistence>();
 
         return new List<IDataPersistence>(dataPersistenceObjects);
+    }
+
+    public bool HasGameData()
+    {
+        return this.gameData != null;
     }
 }
