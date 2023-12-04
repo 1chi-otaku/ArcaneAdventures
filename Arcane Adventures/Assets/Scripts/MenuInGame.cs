@@ -1,32 +1,60 @@
+п»їusing Photon.Pun.Demo.SlotRacer;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MenuInGame : MonoBehaviour
 {
-    public GameObject menuCanvas; // Ссылка на ваш интерфейс меню
-
+    public GameObject menuCanvas; // РЎСЃС‹Р»РєР° РЅР° РІР°С€Рµ РІРЅСѓС‚СЂРёРёРіСЂРѕРІРѕРµ РјРµРЅСЋ
+    public PlayerControl playerControl;
+    public float originalVolume;
     private void Start()
     {
-        // По умолчанию скрываем меню
+        // РџРѕ СѓРјРѕР»С‡Р°РЅРёСЋ СЃРєСЂС‹РІР°РµРј РјРµРЅСЋ РїСЂРё СЃС‚Р°СЂС‚Рµ
         menuCanvas.SetActive(false);
     }
 
     private void Update()
     {
-        // При нажатии клавиши "Esc" отображаем/скрываем меню
+        // РџСЂРё РЅР°Р¶Р°С‚РёРё РЅР° РєР»Р°РІРёС€Сѓ "Esc"
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (menuCanvas.activeSelf)
             {
-                // Меню уже отображается, скрываем его
-                menuCanvas.SetActive(false);
+                // Р•СЃР»Рё РјРµРЅСЋ СѓР¶Рµ РѕС‚РєСЂС‹С‚Рѕ, Р·Р°РєСЂС‹РІР°РµРј РµРіРѕ
+                CloseMenu();
             }
             else
             {
-                // Меню не отображается, открываем его
-                menuCanvas.SetActive(true);
+                // Р•СЃР»Рё РјРµРЅСЋ Р·Р°РєСЂС‹С‚Рѕ, РѕС‚РєСЂС‹РІР°РµРј РµРіРѕ
+                OpenMenu();
             }
         }
+    }
+
+    // Р¤СѓРЅРєС†РёСЏ РѕС‚РєСЂС‹С‚РёСЏ РјРµРЅСЋ
+    private void OpenMenu()
+    {
+        originalVolume = playerControl.sprintSound.volume;
+        // РџРѕРєР°Р·С‹РІР°РµРј РјРµРЅСЋ
+        menuCanvas.SetActive(true);
+
+        playerControl.sprintSound.volume = 0f;
+        playerControl.footstepsSound.volume = 0f;
+
+        // Р—Р°РјРѕСЂР°Р¶РёРІР°РµРј РІСЂРµРјСЏ
+        Time.timeScale = 0f;
+    }
+
+    // Р¤СѓРЅРєС†РёСЏ Р·Р°РєСЂС‹С‚РёСЏ РјРµРЅСЋ
+    private void CloseMenu()
+    {
+        playerControl.sprintSound.volume = originalVolume;
+        playerControl.footstepsSound.volume = originalVolume;
+        // РЎРєСЂС‹РІР°РµРј РјРµРЅСЋ
+        menuCanvas.SetActive(false);
+
+        // Р’РѕР·РѕР±РЅРѕРІР»СЏРµРј РІСЂРµРјСЏ
+        Time.timeScale = 1f;
     }
 }

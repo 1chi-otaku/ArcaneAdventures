@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class endtimeline : MonoBehaviour
 {
     private PlayableDirector playableDirector;
+    public PlayerControl movement;
     public string LoadScene;
 
     private void Start()
@@ -17,14 +18,24 @@ public class endtimeline : MonoBehaviour
         // Подписываемся на событие завершения таймлайна
         if (playableDirector != null)
         {
+            
             playableDirector.stopped += OnTimelineStopped;
+            playableDirector.played += OnTimelineStarted;
+
         }
+    }
+
+    private void OnTimelineStarted(PlayableDirector director)
+    {
+        movement.isMovementAllowed = false;
     }
 
     private void OnTimelineStopped(PlayableDirector director)
     {
         // Перезагружаем сцену
+        movement.isMovementAllowed = true;
         SceneManager.LoadScene(LoadScene);
+        
 
     }
 }
