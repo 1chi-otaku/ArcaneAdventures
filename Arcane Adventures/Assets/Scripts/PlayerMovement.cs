@@ -32,13 +32,16 @@ public class PlayerControl : MonoBehaviour, IDataPersistence
     public Animator animator;
 
     public float timeBtwAttack=0;
+    public float timeBtwDefanse=0;
     float starttimeBtwAttack=0.25f;
+    float starttimeBtwDefense = 2f;
     private static int HP;
     public Slider health;
     public PlayableDirector endcutscene;
 
 
     public bool isMovementAllowed = true;
+    private static bool isDefense = false;
 
     void Start()
     {
@@ -94,7 +97,7 @@ public class PlayerControl : MonoBehaviour, IDataPersistence
             }
         
 
-        health.value = HP;
+            health.value = HP;
             RaycastHit hit;
             Vector3 castpos = transform.position;
             castpos.y += 1;
@@ -136,8 +139,20 @@ public class PlayerControl : MonoBehaviour, IDataPersistence
             {
                 timeBtwAttack -= Time.deltaTime;
             }
+            if (timeBtwDefanse <= 0)
+            {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    StartDefense();
+                    timeBtwDefanse = starttimeBtwDefense;
+                }
+            }
+            else
+            {
+                timeBtwDefanse -= Time.deltaTime;
+            }
 
-            animator.SetFloat("Speed", Mathf.Abs(x));
+                animator.SetFloat("Speed", Mathf.Abs(x));
             animator.SetFloat("VerticalSpeed", Mathf.Abs(y));
             Vector3 moveDir = new Vector3(x, 0, (float)(y * (speed / 1.6)));
 
@@ -164,6 +179,7 @@ public class PlayerControl : MonoBehaviour, IDataPersistence
         if(HP<=0)
         {
             endcutscene.Play();
+            isMovementAllowed = false;
         }
     }
     public static void AddHP()
@@ -184,7 +200,8 @@ public class PlayerControl : MonoBehaviour, IDataPersistence
     }
     public static void Damage(int dmg)
     {
-        HP -= dmg;
+        if(!isDefense)
+            HP -= dmg;
         if(HP <= 0)
         {
         }
@@ -205,5 +222,15 @@ public class PlayerControl : MonoBehaviour, IDataPersistence
     {
         data.playerPosition = this.transform.position;
         data.PlayerHp = HP;
+    }
+    public void StartDefense()
+    {
+        animator.SetTrigger("Def");
+        isDefense = true;
+        Invoke("ResetAnimationFlag", 1f); 
+    }
+    private void ResetAnimationFlag()
+    {
+        isDefense = false;
     }
 }
