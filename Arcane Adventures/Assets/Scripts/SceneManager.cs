@@ -24,6 +24,7 @@ public class Scene : MonoBehaviour
     }
     public void ChangeScene(string scene)
     {
+        Time.timeScale = 1f;
         Debug.Log("New Game: " + scene);
 
         DataPersisteneManager.instance.NewGame();
@@ -38,11 +39,13 @@ public class Scene : MonoBehaviour
 
     public void Load()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadSceneAsync("GameScene2");
     }
 
     public void Return()
     {
+        Time.timeScale = 1f;
         DataPersisteneManager.instance.SaveGame();
         SceneManager.LoadSceneAsync("Menu");
     }
