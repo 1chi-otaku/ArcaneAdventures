@@ -227,7 +227,7 @@ public class PlayerControl : MonoBehaviour, IDataPersistence
     {
         animator.SetTrigger("Def");
         isDefense = true;
-        Invoke("ResetAnimationFlag", 1f); 
+        Invoke("ResetAnimationFlag", 0.8f); 
     }
     private void ResetAnimationFlag()
     {

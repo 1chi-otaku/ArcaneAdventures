@@ -91,7 +91,7 @@ public class EnemyDamage : MonoBehaviour, IDataPersistence
                 if (timeBtwAttack <= 0)
                 {
                     animator.SetBool("IsAttacking", true);
-                    PlayerControl.Damage(10);
+                    StartCoroutine(WaitAndDoSomething());
                     timeBtwAttack = startTimeBtwAttack;
                     isAttacking = true;
                     AudioSource audioSource = GetComponent<AudioSource>();
@@ -103,6 +103,12 @@ public class EnemyDamage : MonoBehaviour, IDataPersistence
                 }
             }
         }
+    }
+    IEnumerator WaitAndDoSomething()
+    {
+        yield return new WaitForSeconds(0.5f);
+        PlayerControl.Damage(10);
+
     }
     private void OnTriggerExit(Collider other)
     {
