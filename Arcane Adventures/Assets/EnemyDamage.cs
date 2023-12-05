@@ -7,6 +7,14 @@ using UnityEngine.UI;
 
 public class EnemyDamage : MonoBehaviour
 {
+    [SerializeField] private string id;
+    [ContextMenu("Generate GUID for ID")]
+    private void GenerateGUID()
+    {
+        id = System.Guid.NewGuid().ToString();
+    }
+
+
     public Animator animator;
     public int maxhealth = 100;
     int currenthealth;
@@ -27,7 +35,7 @@ public class EnemyDamage : MonoBehaviour
     private float timeBtwAttack=0;
     public float startTimeBtwAttack;
     private bool isAttacking =false  ;
-    private bool isalive = true;
+    public bool isalive = true;
     void Start()
     {
         currenthealth = maxhealth;
