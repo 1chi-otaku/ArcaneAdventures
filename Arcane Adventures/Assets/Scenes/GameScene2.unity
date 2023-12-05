@@ -12889,7 +12889,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2288972791261562856, guid: c9be6086e3ecc5a46a766e378e328ebb, type: 3}
       propertyPath: field of view
-      value: 75.16477
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2288972791261562856, guid: c9be6086e3ecc5a46a766e378e328ebb, type: 3}
       propertyPath: far clip plane
@@ -12941,31 +12941,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5404629705425819246, guid: c9be6086e3ecc5a46a766e378e328ebb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24.797384
+      value: -0.07999802
       objectReference: {fileID: 0}
     - target: {fileID: 5404629705425819246, guid: c9be6086e3ecc5a46a766e378e328ebb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.946856
+      value: 3.8674345
       objectReference: {fileID: 0}
     - target: {fileID: 5404629705425819246, guid: c9be6086e3ecc5a46a766e378e328ebb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.43347
+      value: -19.6266
       objectReference: {fileID: 0}
     - target: {fileID: 5404629705425819246, guid: c9be6086e3ecc5a46a766e378e328ebb, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9833879
+      value: 0.9961947
       objectReference: {fileID: 0}
     - target: {fileID: 5404629705425819246, guid: c9be6086e3ecc5a46a766e378e328ebb, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.15935749
+      value: 0.08715578
       objectReference: {fileID: 0}
     - target: {fileID: 5404629705425819246, guid: c9be6086e3ecc5a46a766e378e328ebb, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.08543477
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5404629705425819246, guid: c9be6086e3ecc5a46a766e378e328ebb, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.015949411
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5642124855299130475, guid: c9be6086e3ecc5a46a766e378e328ebb, type: 3}
       propertyPath: range

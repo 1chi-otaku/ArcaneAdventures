@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
-public class EnemyDamage : MonoBehaviour
+public class EnemyDamage : MonoBehaviour, IDataPersistence
 {
-    [SerializeField] private string id;
+    [SerializeField] public string id;
     [ContextMenu("Generate GUID for ID")]
     private void GenerateGUID()
     {
@@ -35,7 +36,7 @@ public class EnemyDamage : MonoBehaviour
     private float timeBtwAttack=0;
     public float startTimeBtwAttack;
     private bool isAttacking =false  ;
-    public bool isalive = true;
+    private bool isDeath = false;
     void Start()
     {
         currenthealth = maxhealth;
@@ -83,7 +84,7 @@ public class EnemyDamage : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (isalive)
+        if (!isDeath)
         {
             if (other.CompareTag("Player"))
             {
@@ -189,8 +190,32 @@ public class EnemyDamage : MonoBehaviour
         transform.position = new Vector3(currentpostion.x, currentpostion.y - 0.1f, currentpostion.z);
         GetComponent<Collider>().enabled = false;
         this.enabled = false;
-        isalive = false;
+        isDeath = true;
         NikitaOpenDialog.countkilled++;
     }
+    public void SaveData(ref GameData data)
+    {
+        if (data.SkelletonState.ContainsKey(id))
+        {
+            data.SkelletonState.Remove(id);
+        }
 
+        data.SkelletonState.Add(id, isDeath);
+    }
+
+    public void LoadData(GameData data)
+    {
+        data.SkelletonState.TryGetValue(id, out isDeath);
+        if (isDeath)
+        {
+            healthbar.gameObject.SetActive(false);
+            GetComponent<Collider>().enabled = false;
+            this.enabled = false;
+            gameObject.SetActive(false);
+        }
+    }
+
+
+
+    
 }
