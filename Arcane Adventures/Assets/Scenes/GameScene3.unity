@@ -4977,6 +4977,7 @@ GameObject:
   - component: {fileID: 595393655}
   - component: {fileID: 595393654}
   - component: {fileID: 595393659}
+  - component: {fileID: 595393660}
   m_Layer: 0
   m_Name: Golem
   m_TagString: Untagged
@@ -5075,7 +5076,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: cc624e0790f01cb4eb92f7ae6ec41f79, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5098,7 +5099,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -1000959657, guid: 75381fd1699c5ac43959406f268e82fb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.06, y: 1.02}
@@ -5135,7 +5136,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 62286368}
-  isFlipped: 1
+  isFlipped: 0
+--- !u!114 &595393660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595393653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 801a52c9148d91744b935095cfff72aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 20
+  attackOffset: {x: -0.5, y: 0, z: 0}
+  attackRange: 0.5
+  attackMask:
+    serializedVersion: 2
+    m_Bits: 256
+  attackClip: {fileID: 1365474574}
 --- !u!1 &598692611
 GameObject:
   m_ObjectHideFlags: 0
@@ -6187,7 +6207,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 710703839}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttackPointLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10532,7 +10552,7 @@ GameObject:
   - component: {fileID: 1282239269}
   - component: {fileID: 1282239271}
   - component: {fileID: 1282239270}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11205,6 +11225,134 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88876ce43ab1add409a97521bf44ec1c, type: 3}
+--- !u!1 &1365474573
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1365474575}
+  - component: {fileID: 1365474574}
+  m_Layer: 0
+  m_Name: GolemAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1365474574
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365474573}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: a68e53da853e24b45a5a33a8a285462d, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1365474575
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365474573}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.2339964, y: -5.4889855, z: 36.28074}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1366619273
 GameObject:
   m_ObjectHideFlags: 0
@@ -11214,7 +11362,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1366619274}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12497,7 +12645,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1551500193}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttackPointRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12534,7 +12682,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1571466328}
   - component: {fileID: 1571466327}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12781,6 +12929,10 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 98107911800327081, guid: c9be6086e3ecc5a46a766e378e328ebb, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2288972791261562856, guid: c9be6086e3ecc5a46a766e378e328ebb, type: 3}
       propertyPath: field of view
       value: 13
@@ -12794,6 +12946,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2358760918599448926, guid: c9be6086e3ecc5a46a766e378e328ebb, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2358760918599448926, guid: c9be6086e3ecc5a46a766e378e328ebb, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -12804,6 +12960,10 @@ PrefabInstance:
     - target: {fileID: 4489070229684044297, guid: c9be6086e3ecc5a46a766e378e328ebb, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4489070229684044297, guid: c9be6086e3ecc5a46a766e378e328ebb, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4489070229684044297, guid: c9be6086e3ecc5a46a766e378e328ebb, type: 3}
       propertyPath: m_TagString
@@ -12836,6 +12996,10 @@ PrefabInstance:
     - target: {fileID: 4749478290845292485, guid: c9be6086e3ecc5a46a766e378e328ebb, type: 3}
       propertyPath: m_TaaSettings.contrastAdaptiveSharpening
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5027090149521023193, guid: c9be6086e3ecc5a46a766e378e328ebb, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5404629705425819246, guid: c9be6086e3ecc5a46a766e378e328ebb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12949,9 +13113,13 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: cc624e0790f01cb4eb92f7ae6ec41f79, type: 2}
+    - target: {fileID: 6855843249628463711, guid: c9be6086e3ecc5a46a766e378e328ebb, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7610526699610634906, guid: c9be6086e3ecc5a46a766e378e328ebb, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7664367986297965934, guid: c9be6086e3ecc5a46a766e378e328ebb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13342,7 +13510,7 @@ GameObject:
   - component: {fileID: 1638057074}
   - component: {fileID: 1638057076}
   - component: {fileID: 1638057075}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16384,7 +16552,7 @@ GameObject:
   - component: {fileID: 2070509377}
   - component: {fileID: 2070509379}
   - component: {fileID: 2070509378}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DayNightPointLightConrol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17412,3 +17580,4 @@ SceneRoots:
   - {fileID: 2124968613}
   - {fileID: 1428224604}
   - {fileID: 595393658}
+  - {fileID: 1365474575}
