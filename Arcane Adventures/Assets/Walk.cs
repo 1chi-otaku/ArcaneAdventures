@@ -20,7 +20,11 @@ public class Walk : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         boss.LookAtPlayer();
-        if (Vector3.Distance(player.position, rb.position) <= attackRange)
+        if (Vector3.Distance(player.position, rb.position) > attackRange*3)
+        {
+            animator.SetTrigger("RangeAttack");
+        }
+        else if (Vector3.Distance(player.position, rb.position) <= attackRange)
         {
             animator.SetTrigger("Attack");
         }
