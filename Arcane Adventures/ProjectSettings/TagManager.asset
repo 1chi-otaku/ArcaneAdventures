@@ -10,6 +10,7 @@ TagManager:
   - Trap
   - trigger
   - Golem
+  - NPC
   layers:
   - Default
   - TransparentFX

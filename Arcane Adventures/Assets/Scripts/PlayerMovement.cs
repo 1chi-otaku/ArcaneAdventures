@@ -1,6 +1,7 @@
 using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 //using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -20,6 +21,10 @@ public class PlayerControl : MonoBehaviour, IDataPersistence
     public LayerMask enemyLayer;
     public float attackTime = 2f;
     float nextTimeAttack = 0f;
+
+
+    private NPCController npc;
+   
 
 
     private PhotonView photonView;
@@ -57,7 +62,7 @@ public class PlayerControl : MonoBehaviour, IDataPersistence
     // Update is called once per frame
     void Update()
     {
-        if (photonView.IsMine && isMovementAllowed)
+        if (photonView.IsMine && isMovementAllowed && !InDialogue())
         {
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
             {
@@ -236,5 +241,29 @@ public class PlayerControl : MonoBehaviour, IDataPersistence
     private void ResetAnimationFlag()
     {
         isDefense = false;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "NPC")
+        {
+
+            npc = other.gameObject.GetComponent<NPCController>();
+            if (Input.GetKey(KeyCode.E))
+            {
+                other.gameObject.GetComponent<NPCController>().ActivateDialogue();
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        npc = null;
+    }
+
+    private bool InDialogue()
+    {
+        if (npc != null) return npc.DialogueActive();
+        else return false;
     }
 }

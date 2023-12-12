@@ -1,13 +1,26 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace DialogueSystem
 {
     public class DialogueHolder : MonoBehaviour
     {
-        private void Awake()
+        private void OnEnable()
+       {
+            dialogueSeq = dialogueSequence();
+            StartCoroutine(dialogueSeq);
+        }
+
+        private IEnumerator dialogueSeq;
+        private void Update()
         {
-            StartCoroutine(dialogueSequence());
+            if(Input.GetKeyUp(KeyCode.F))
+            {
+                Deactivate();
+                gameObject.SetActive(false);
+                StopCoroutine(dialogueSeq);
+            }
         }
 
         private IEnumerator dialogueSequence()
