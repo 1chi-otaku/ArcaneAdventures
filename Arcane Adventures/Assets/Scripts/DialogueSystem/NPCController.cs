@@ -8,6 +8,7 @@ public class NPCController : MonoBehaviour
     public void ActivateDialogue()
     {
         dialogue.SetActive(true);
+
     }
 
     public bool DialogueActive()

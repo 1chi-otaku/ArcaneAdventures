@@ -24,7 +24,9 @@ public class PlayerControl : MonoBehaviour, IDataPersistence
 
 
     private NPCController npc;
-   
+
+    public Canvas EpromptCanvas;
+
 
 
     private PhotonView photonView;
@@ -247,11 +249,12 @@ public class PlayerControl : MonoBehaviour, IDataPersistence
     {
         if (other.gameObject.tag == "NPC")
         {
-
+            EpromptCanvas.gameObject.SetActive(true);
             npc = other.gameObject.GetComponent<NPCController>();
             if (Input.GetKey(KeyCode.E))
             {
                 other.gameObject.GetComponent<NPCController>().ActivateDialogue();
+                EpromptCanvas.gameObject.SetActive(false);
             }
         }
     }
@@ -259,6 +262,7 @@ public class PlayerControl : MonoBehaviour, IDataPersistence
     private void OnTriggerExit(Collider other)
     {
         npc = null;
+        EpromptCanvas.gameObject.SetActive(false);
     }
 
     private bool InDialogue()
