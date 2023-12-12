@@ -195,7 +195,11 @@ public class PlayerControl : MonoBehaviour, IDataPersistence
         Collider[] hitenemies = Physics.OverlapSphere(attackpoint_position, range, enemyLayer);
         foreach (Collider enemy in hitenemies)
         {
-            enemy.GetComponent<EnemyDamage>().TakeDamage(10);
+            enemy.GetComponent<EnemyDamage>()?.TakeDamage(10);
+        }
+        foreach (Collider enemy in hitenemies)
+        {
+            enemy.GetComponent<Boss>()?.Damage(20);
         }
     }
     public static void Damage(int dmg)

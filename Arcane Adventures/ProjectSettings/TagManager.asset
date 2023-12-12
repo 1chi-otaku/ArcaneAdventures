@@ -9,6 +9,7 @@ TagManager:
   - BlueOrb
   - Trap
   - trigger
+  - Golem
   layers:
   - Default
   - TransparentFX

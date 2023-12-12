@@ -6,7 +6,7 @@ public class BossWeapon : MonoBehaviour
 {
     public int attackDamage = 20;
     public Vector3 attackOffset;
-    public float attackRange = 1f;
+    public float attackRange = 1.5f;
     public LayerMask attackMask;
     Vector3 pos;
     public AudioSource attackClip;

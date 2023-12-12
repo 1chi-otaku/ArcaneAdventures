@@ -9,6 +9,8 @@ public class Walk : StateMachineBehaviour
     public float speed =2.5f;
     Boss boss;
     public float attackRange = 0.5f;
+    public float timeBtwAttack=0;
+    float starttimeBtwAttack = 1f;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -20,9 +22,22 @@ public class Walk : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         boss.LookAtPlayer();
-        if (Vector3.Distance(player.position, rb.position) > attackRange*3)
+
+        if (Vector3.Distance(player.position, rb.position) > attackRange * 3)
         {
-            animator.SetTrigger("RangeAttack");
+            if (timeBtwAttack <= 0)
+            { 
+                animator.SetTrigger("RangeAttack");
+                timeBtwAttack = starttimeBtwAttack;
+            }
+            else
+            {
+                Vector3 target = new Vector3(player.position.x, player.position.y, player.position.z);
+                Vector3 newPos = Vector3.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
+                rb.MovePosition(newPos);
+                timeBtwAttack -= Time.deltaTime;
+
+            }
         }
         else if (Vector3.Distance(player.position, rb.position) <= attackRange)
         {
@@ -33,8 +48,9 @@ public class Walk : StateMachineBehaviour
             Vector3 target = new Vector3(player.position.x, player.position.y, player.position.z);
             Vector3 newPos = Vector3.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
             rb.MovePosition(newPos);
+
         }
-        
+
     }
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
