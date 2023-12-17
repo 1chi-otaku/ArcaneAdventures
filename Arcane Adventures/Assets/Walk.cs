@@ -6,9 +6,9 @@ public class Walk : StateMachineBehaviour
 {
     Transform player;
     Rigidbody rb;
-    public float speed =2.5f;
+    public float speed =1.5f;
     Boss boss;
-    public float attackRange = 0.5f;
+    public float attackRange = 0.7f;
     public float timeBtwAttack=0;
     float starttimeBtwAttack = 1f;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -33,7 +33,7 @@ public class Walk : StateMachineBehaviour
             else
             {
                 Vector3 target = new Vector3(player.position.x, player.position.y, player.position.z);
-                Vector3 newPos = Vector3.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
+                Vector3 newPos = Vector3.MoveTowards(rb.position, target, speed * Time.deltaTime);
                 rb.MovePosition(newPos);
                 timeBtwAttack -= Time.deltaTime;
 
@@ -46,7 +46,7 @@ public class Walk : StateMachineBehaviour
         else
         {
             Vector3 target = new Vector3(player.position.x, player.position.y, player.position.z);
-            Vector3 newPos = Vector3.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
+            Vector3 newPos = Vector3.MoveTowards(rb.position, target, speed * Time.deltaTime);
             rb.MovePosition(newPos);
 
         }

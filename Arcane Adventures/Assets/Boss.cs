@@ -7,9 +7,10 @@ public class Boss : MonoBehaviour
 {
     public Transform player;
     public bool isFlipped=false;
-    private int health = 400;
+    private int health = 500;
     public Slider slider;
     public AudioSource audioSource;
+    public Canvas bosscanvas;
     public void LookAtPlayer()
     {
         Vector3 flipped = transform.localScale;
@@ -33,7 +34,7 @@ public class Boss : MonoBehaviour
         {
             health -= dmg;
         }
-        else
+        else if(health <= 0) 
         {
             audioSource.Play();
             gameObject.GetComponent<Animator>().SetTrigger("isDead");
@@ -42,7 +43,7 @@ public class Boss : MonoBehaviour
             Vector3 currentPosition = transform.position;
             currentPosition.y = -0.93f; 
             transform.position = currentPosition;
-            slider.enabled = false;
+            bosscanvas.enabled = false;
         }
     }
     void Update()
