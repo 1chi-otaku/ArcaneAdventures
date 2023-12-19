@@ -55,20 +55,20 @@ public class KeyManager : MonoBehaviour
             PlayerPrefs.SetInt("WasLabyCompleted", 1);
         }
 
-        if(platformerCompleted > 0)
+        if(platformerCompleted != 0)
         {
             keys++;
         }
-        if(fifteenCompleted > 0)
+        if(fifteenCompleted != 0)
         {
             keys++;
         }
-        if(labyCompleted > 0)
+        if(labyCompleted != 0)
         {
             keys++;
         }
 
-        Debug.Log("Keys - 3");
+        Debug.Log("Keys - " + keys);
 
     }
 

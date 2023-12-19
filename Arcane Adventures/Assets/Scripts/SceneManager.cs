@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -26,8 +26,16 @@ public class Scene : MonoBehaviour
     {
         Time.timeScale = 1f;
         Debug.Log("New Game: " + scene);
+        // Удаляем значения для указанных ключей
+        PlayerPrefs.SetInt("PlatformerCompleted", 0);
+        PlayerPrefs.SetInt("FifteenCompleted", 0);
+        PlayerPrefs.SetInt("LabyCompleted", 0);
+
+        // Сохраняем изменения
+        PlayerPrefs.Save();
 
         DataPersisteneManager.instance.NewGame();
+
 
         SceneManager.LoadSceneAsync(scene);
     }
