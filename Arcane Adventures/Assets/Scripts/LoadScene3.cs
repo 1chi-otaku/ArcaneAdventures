@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -18,13 +18,33 @@ public class LoadScene3 : MonoBehaviour
     {
         if (other.gameObject == player)
         {
-            DataPersisteneManager dataPersistence = FindObjectOfType<DataPersisteneManager>();
-            if (dataPersistence != null)
+            KeyManager keyManager = FindObjectOfType<KeyManager>();
+            if (keyManager != null)
             {
-                dataPersistence.enabled = false;
+                // Получение количества ключей
+                int keyCount = keyManager.KeysCount;
+
+                // Ваш код, использующий keyCount
+                Debug.Log("Key Count: " + keyCount);
+               
+
+                // Загрузка сцены
+                if(keyCount == 3)
+                {
+                    DataPersisteneManager dataPersistence = FindObjectOfType<DataPersisteneManager>();
+                    if (dataPersistence != null)
+                    {
+                        dataPersistence.enabled = false;
+                    }
+                    SceneManager.LoadScene(scene);
+                }
+                
+            }
+            else
+            {
+                Debug.LogError("KeyManager not found in the scene!");
             }
 
-            SceneManager.LoadScene(scene);
         }
     }
 }

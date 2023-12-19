@@ -66,7 +66,8 @@ public class PlayerControl : MonoBehaviour, IDataPersistence
     {
         if (photonView.IsMine && isMovementAllowed && !InDialogue())
         {
-            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) ||
+     Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.RightArrow))
             {
                 if (Input.GetKey(KeyCode.LeftShift))
                 {

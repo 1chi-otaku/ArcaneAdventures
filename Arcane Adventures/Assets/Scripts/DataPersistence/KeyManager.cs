@@ -74,6 +74,13 @@ public class KeyManager : MonoBehaviour
         Debug.Log("Keys - " + keys);
         keysCountText.text = "(" + keys.ToString() + "/3)";
 
+        if(keys == 3)
+        {
+            keysCountText.color = Color.green;
+        }
+
+        
+
     }
 
 }
