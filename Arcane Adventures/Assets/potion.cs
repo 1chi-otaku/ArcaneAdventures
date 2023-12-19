@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class potion : MonoBehaviour
 {
-    private AudioSource bulk;
-    private void Start()
-    {
-        bulk = gameObject.GetComponent<AudioSource>();
-    }
+    public AudioSource bulk;
     private void OnTriggerEnter(Collider other)
     {
         PlayerControl.AddHP();
         bulk.Play();
-        gameObject.SetActive(false);
+        gameObject.GetComponent<Collider>().enabled = false;
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        StartCoroutine(DestroyAfterDelay(1f));
+    }
+    IEnumerator DestroyAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Destroy(gameObject);
     }
 }

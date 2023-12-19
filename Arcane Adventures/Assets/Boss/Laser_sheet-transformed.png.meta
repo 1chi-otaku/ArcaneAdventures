@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 12
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -37,13 +37,13 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -52,9 +52,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -121,18 +121,338 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Laser_sheet-transformed_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2688
+        width: 600
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9323e1a7e157fe344ab76b501fbb0d0f
+      internalID: -504223698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laser_sheet-transformed_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2487
+        width: 600
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc9ee949a54d0fc48bbd1d4e58c5ce8e
+      internalID: -582908772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laser_sheet-transformed_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2287
+        width: 600
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 914436c9242acfe4085e666863b435a7
+      internalID: -656710487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laser_sheet-transformed_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2089
+        width: 600
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d416ec84a13013747bdf3c84046105f3
+      internalID: 1618361632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laser_sheet-transformed_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1888
+        width: 600
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13cce02ba8b67384e9ee4afd865310ae
+      internalID: -522917895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laser_sheet-transformed_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1692
+        width: 600
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c434ad1a5742744ab7374e86f230b95
+      internalID: -223210325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laser_sheet-transformed_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1496
+        width: 600
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83267184f100fe24bb917ade7adf77d5
+      internalID: -320760057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laser_sheet-transformed_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1299
+        width: 600
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58712e896e3774444afa4c24938688f0
+      internalID: 1516776042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laser_sheet-transformed_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1084
+        width: 600
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9db159ee194119428c95554e76507ea
+      internalID: 245690577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laser_sheet-transformed_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 894
+        width: 600
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3000b064a8a1a66488282b95b181ce3a
+      internalID: 2040955350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laser_sheet-transformed_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 702
+        width: 600
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad4b786125bff044b9722b74f1e04b59
+      internalID: -1260319616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laser_sheet-transformed_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 502
+        width: 600
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8c7f9b1b2d47cd438aaf74ad7c5eb05
+      internalID: -115202993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laser_sheet-transformed_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 304
+        width: 600
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41d86fa811861734ea540782a4fcc43e
+      internalID: -1473384967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laser_sheet-transformed_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 104
+        width: 600
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31ba28e68f6c08d46a9f0013d8c4be7d
+      internalID: -35666388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: cea15479adb39e345bcadce4a579fa92
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Laser_sheet-transformed_0: -504223698
+      Laser_sheet-transformed_1: 1035684042
+      Laser_sheet-transformed_10: -1469781567
+      Laser_sheet-transformed_11: -431330082
+      Laser_sheet-transformed_12: 1618361632
+      Laser_sheet-transformed_13: 269791099
+      Laser_sheet-transformed_14: 1985098339
+      Laser_sheet-transformed_15: -254271433
+      Laser_sheet-transformed_16: -522917895
+      Laser_sheet-transformed_17: -223210325
+      Laser_sheet-transformed_18: -320760057
+      Laser_sheet-transformed_19: 1516776042
+      Laser_sheet-transformed_2: -380624628
+      Laser_sheet-transformed_20: 245690577
+      Laser_sheet-transformed_21: 2040955350
+      Laser_sheet-transformed_22: -1260319616
+      Laser_sheet-transformed_23: -115202993
+      Laser_sheet-transformed_24: -1473384967
+      Laser_sheet-transformed_25: -35666388
+      Laser_sheet-transformed_3: -582908772
+      Laser_sheet-transformed_4: -1644933247
+      Laser_sheet-transformed_5: -1846042220
+      Laser_sheet-transformed_6: 150975193
+      Laser_sheet-transformed_7: -656710487
+      Laser_sheet-transformed_8: 920233016
+      Laser_sheet-transformed_9: 1858223445
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
