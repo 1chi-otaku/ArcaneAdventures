@@ -262,7 +262,7 @@ public class PlayerControl : MonoBehaviour, IDataPersistence
     private void OnTriggerExit(Collider other)
     {
         npc = null;
-        EpromptCanvas.gameObject.SetActive(false);
+       //EpromptCanvas.gameObject.SetActive(false);
     }
 
     private bool InDialogue()
