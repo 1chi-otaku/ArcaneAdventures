@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class KeyManager : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class KeyManager : MonoBehaviour
     int labyCompleted;
 
     int keys;
+
+    public Text keysCountText;
 
 
     public int KeysCount
@@ -69,6 +72,7 @@ public class KeyManager : MonoBehaviour
         }
 
         Debug.Log("Keys - " + keys);
+        keysCountText.text = "(" + keys.ToString() + "/3)";
 
     }
 
