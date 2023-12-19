@@ -18,12 +18,16 @@ public class EndScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.name == "Player" && !levelCompleted)
+        
+        if (collision.gameObject.name == "Player" && !levelCompleted)
         {
+            PlayerPrefs.SetInt("PlatformerCompleted", PlayerPrefs.GetInt("PlatformerCompleted") + 1);
+            PlayerPrefs.Save();
             levelCompleted = true;
             finishSound.Play();
             Invoke("Finish", 3f);
             animator.SetTrigger("complete");
+            Debug.Log(PlayerPrefs.GetInt("PlatformerCompleted"));
 
         }
     }

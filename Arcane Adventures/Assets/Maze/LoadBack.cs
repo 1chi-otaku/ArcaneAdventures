@@ -13,8 +13,11 @@ public class LoadBack : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.gameObject == player)
         {
+            PlayerPrefs.SetInt("LabyCompleted", PlayerPrefs.GetInt("LabyCompleted") + 1);
+            PlayerPrefs.Save();
             SceneManager.LoadScene(scene);
             player.transform.position = spawnPoint.position;
         }

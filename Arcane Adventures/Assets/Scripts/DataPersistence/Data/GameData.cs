@@ -15,6 +15,8 @@ public class GameData
 
     public SerializableDictionary<string, bool> SkelletonState;
 
+    public int IsPlatformerCompleted;
+
 
 
     //Значения, которые определяются в этом конструкторе будут дефолтными значениями.
@@ -27,9 +29,7 @@ public class GameData
         PlayerHp = 100;
         KilledSkeleons = 0;
         SkelletonState = new SerializableDictionary<string, bool>();
-
-
-
+        IsPlatformerCompleted = 0;
 
     }
 

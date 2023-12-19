@@ -20,11 +20,14 @@ public class Manager : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.Escape))
         {
+            PlayerPrefs.SetInt("FifteenCompleted", PlayerPrefs.GetInt("FifteenCompleted") + 1);
+            PlayerPrefs.Save();
             SceneManager.LoadScene("GameScene2");
         }
         if(isWin)
         {
-
+            PlayerPrefs.SetInt("FifteenCompleted", PlayerPrefs.GetInt("FifteenCompleted") + 1);
+            PlayerPrefs.Save();
             StartCoroutine(ReloadSceneAfterDelay(2f));
             SceneManager.LoadScene("GameScene2");
         }
