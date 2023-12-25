@@ -67,8 +67,8 @@ public class Boss : MonoBehaviour
     }
     public void SecondPart()
     {
-        health = 600;
-        slider.maxValue = 600;
+        health = 450;
+        slider.maxValue = 450;
         slider.value = health;
     }
     void Update()

@@ -7211,7 +7211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 817049214}
   an: {fileID: 727893139}
-  scene: GameScene2
+  scene: Labyrinth
   auc: {fileID: 8300000, guid: 3b1b41fb666190048b8b4604a1efd1e3, type: 3}
   audioSource: {fileID: 1323811894}
 --- !u!195 &727893138
@@ -14479,6 +14479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 817049214}
   scene: GameScene2
+  manager: {fileID: 0}
 --- !u!65 &1502219530
 BoxCollider:
   m_ObjectHideFlags: 0
